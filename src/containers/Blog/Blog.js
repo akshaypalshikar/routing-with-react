@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 
 
 import './Blog.css';
 import NewPost from './NewPost/NewPost';
 import Posts from './Posts/Posts';
+import FullPost from './FullPost/FullPost';
 
 class Blog extends Component {
     render() {
@@ -15,18 +16,22 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to={{
-                                pathname: 'new-post',           //absolute path
-//                              pathname: this.props.match.url+'/new-post',           //relative path  
+                            <li><NavLink to='/' exact>Home</NavLink></li>
+
+                            <li><NavLink to={{
+                                pathname: 'newPost',           //absolute path
+                                //pathname: this.props.match.url+'/new-post',           //relative path  
                                 hash: '#submit',
                                 search: '?quick-submit=true'
-                            }}>New Post</Link></li>
+                            }} >New Post</NavLink></li>
                         </ul>
                     </nav>
                 </header>
                 <Route path='/' exact component={Posts} />
-                <Route path='/new-post' component={NewPost} />
+                <Switch>
+                    <Route path='/newPost' exact component={NewPost} />
+                    <Route path='/:postId' exact component={FullPost} />
+                </Switch>
             </div>
         );
     }
