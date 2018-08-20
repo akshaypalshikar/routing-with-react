@@ -12,7 +12,7 @@
 
 .Edit label {
     display: block;
-    color: grey;
+    color: #857d7d;
 }
 
 .Edit button {
@@ -20,19 +20,19 @@
     background-color: transparent;
     cursor: pointer;
     outline: none;
-    color: #fa923f;
+    color: #faad6e;
 }
 
 .Edit button:hover,
 .Edit button:active {
-    color: #521751;
+    color: #815881;
 }
 
 .Edit button.Delete {
-    color: red;
+    color: #e05b5b;
 }
 
 .Edit button.Delete:hover,
 .Edit button.Delete:active {
-    color: darkred;
+    color: #753a3a;
 }
